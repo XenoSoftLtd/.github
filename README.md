@@ -12,13 +12,14 @@ All product work lives on [Project 10](https://github.com/orgs/XenoSoftLtd/proje
 4. When every Task is closed, the Feature shows 100% sub-issue progress. Close it.
 
 ## Automation
-- `.github/workflows/project-intake.yml` is a shared workflow. Each product repo calls it on new issues and PRs,
-  and it adds them to Project 10 using the `xenosoft-project-bot` GitHub App.
-  - Secrets: `PROJECT_BOT_CLIENT_ID` and `PROJECT_BOT_PRIVATE_KEY` (org secrets).
-- Status moves are Project 10's built-in workflows:
+Project 10's built-in workflows do all of it (Project → ⋯ → Workflows). There is no bot, App or secret.
+- **Auto-add**: one rule per repo (MarketDataUsageAnalysis, MarketDataUsageAnalysis-UI, CLARE, client-manager,
+  rate-card-manager), filter `is:issue,pr is:open`. The Team plan allows 5 rules, so a 6th repo needs an
+  App-backed `actions/add-to-project` workflow instead.
+- **Status**:
   - added or reopened → Todo
   - PR linked → In Progress
   - PR merged or item closed → Done
   - sub-issues are auto-added
 - `.github/ISSUE_TEMPLATE/` holds the default Feature, Task and Bug forms for every repo without its own forms.
-  This repo must stay **public** for those defaults to apply. It holds no secrets.
+  This repo must stay **public** for those defaults to apply.
