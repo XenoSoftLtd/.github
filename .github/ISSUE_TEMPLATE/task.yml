@@ -1,0 +1,32 @@
+name: Task
+description: One PR-sized slice of a Feature. Create it as a sub-issue of its Feature, in the repo that will hold the PR.
+title: "[Task]: "
+type: Task
+body:
+  - type: input
+    id: parent
+    attributes:
+      label: Parent feature
+      description: URL of the Feature issue. Also attach this issue as its sub-issue.
+      placeholder: https://github.com/XenoSoftLtd/MarketDataUsageAnalysis/issues/123
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: What this slice delivers
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Tests, evidence and deploy steps that prove it works. The PR body references this issue with "Closes".

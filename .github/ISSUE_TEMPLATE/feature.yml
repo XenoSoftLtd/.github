@@ -1,0 +1,52 @@
+name: Feature
+description: A user-visible capability. Open it in MarketDataUsageAnalysis, then break it into Task sub-issues.
+title: "[Feature]: "
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open Features in **MarketDataUsageAnalysis**. After creating it, add one **Task sub-issue** per PR-sized slice,
+        each in the repo whose pull request will close it (Create sub-issue → choose repo).
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: Who gets what, and why it matters.
+      placeholder: Operators can ... so that ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Planned tasks
+      description: One line per PR-sized slice with its repo. Each becomes a Task sub-issue.
+      placeholder: |
+        - BE: read endpoints (MarketDataUsageAnalysis)
+        - UI: page rewrite (MarketDataUsageAnalysis-UI)
+        - Deploy to dev
+    validations:
+      required: true
+  - type: checkboxes
+    id: repos
+    attributes:
+      label: Repos affected
+      options:
+        - label: MarketDataUsageAnalysis
+        - label: MarketDataUsageAnalysis-UI
+        - label: CLARE
+        - label: client-manager
+        - label: rate-card-manager
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
